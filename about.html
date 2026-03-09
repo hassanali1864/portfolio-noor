@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Noor-ul-Ain Saqib</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.about-hero { max-width: 1160px; margin: 0 auto; padding: 4rem 4rem 3rem; display: grid; grid-template-columns: 1fr 320px; gap: 5rem; align-items: start; }
+.about-hero-photo { position: sticky; top: 100px; }
+.about-photo-frame { border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-lg); aspect-ratio: 3/4; }
+.about-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+
+.about-strip { margin-top: 1rem; background: var(--cream2); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.3rem 0; }
+.strip-row { display: flex; align-items: center; justify-content: space-between; padding: 0.6rem 1.2rem; border-bottom: 1px solid var(--border); }
+.strip-row:last-child { border-bottom: none; }
+.strip-label { font-family: 'Fira Mono', monospace; font-size: 0.64rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+.strip-val { font-size: 0.82rem; color: var(--bark); font-weight: 500; }
+.strip-val.available { color: var(--green); }
+
+.about-text { padding-top: 0.5rem; }
+.about-text h1 { margin-bottom: 1.5rem; }
+.about-text p { font-size: 1.02rem; line-height: 1.85; margin-bottom: 1.2rem; }
+.about-text p strong { color: var(--bark); font-weight: 600; }
+
+/* Skills */
+.skills-section { background: var(--cream2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.skills-inner { max-width: 1160px; margin: 0 auto; padding: 4.5rem 4rem; }
+.skills-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; margin-top: 2.5rem; }
+.skill-cat { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem; transition: all 0.2s; }
+.skill-cat:hover { border-color: var(--clay); box-shadow: var(--shadow-sm); }
+.skill-cat-header { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem; }
+.skill-cat-icon { width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; border-radius: 8px; background: var(--accent-light); border: 1px solid rgba(193,127,62,0.18); flex-shrink: 0; }
+.skill-cat-icon svg { stroke: var(--accent); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.skill-cat-title { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 600; color: var(--bark); }
+.skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+/* Experience */
+.experience-section { max-width: 1160px; margin: 0 auto; padding: 4.5rem 4rem; }
+.timeline { position: relative; margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+.timeline::before { content: ''; position: absolute; left: 11px; top: 8px; bottom: 8px; width: 1.5px; background: var(--border-med); }
+.timeline-item { display: grid; grid-template-columns: 24px 1fr; gap: 1.5rem; align-items: start; }
+.timeline-dot { width: 24px; height: 24px; border-radius: 50%; background: #fff; border: 2px solid var(--clay); flex-shrink: 0; margin-top: 0.2rem; position: relative; z-index: 1; }
+.timeline-dot.accent { background: var(--accent); border-color: var(--accent); }
+.timeline-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1.6rem; transition: all 0.2s; }
+.timeline-card:hover { border-color: var(--sand); box-shadow: var(--shadow-sm); }
+.timeline-date { font-family: 'Fira Mono', monospace; font-size: 0.68rem; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 0.4rem; text-transform: uppercase; }
+.timeline-role { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--bark); margin-bottom: 0.2rem; }
+.timeline-org { font-size: 0.85rem; color: var(--terra); font-weight: 500; margin-bottom: 0.8rem; }
+.timeline-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
+.timeline-bullets li { font-size: 0.88rem; color: var(--muted); padding-left: 1.2rem; position: relative; line-height: 1.6; }
+.timeline-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent); font-size: 0.7rem; }
+
+/* Education */
+.education-section { background: var(--cream2); border-top: 1px solid var(--border); }
+.education-inner { max-width: 1160px; margin: 0 auto; padding: 4.5rem 4rem; }
+.edu-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; display: grid; grid-template-columns: 60px 1fr; gap: 2rem; align-items: start; margin-top: 2.5rem; }
+.edu-icon { width: 60px; height: 60px; background: var(--accent-light); border: 1px solid rgba(193,127,62,0.2); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; }
+.edu-icon svg { stroke: var(--accent); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.edu-degree { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--bark); margin-bottom: 0.3rem; }
+.edu-uni { color: var(--accent); font-family: 'Fira Mono', monospace; font-size: 0.76rem; letter-spacing: 0.06em; margin-bottom: 0.8rem; text-transform: uppercase; }
+.edu-meta-row { display: flex; gap: 2.5rem; margin-bottom: 1rem; }
+.edu-meta-item { font-size: 0.85rem; color: var(--muted); }
+.edu-meta-item span { color: var(--bark); font-weight: 500; }
+.edu-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.2rem; }
+.edu-modules-label { font-family: 'Fira Mono', monospace; font-size: 0.64rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.6rem; }
+
+/* Certifications */
+.certs-section { max-width: 1160px; margin: 0 auto; padding: 4.5rem 4rem; }
+.certs-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; margin-top: 2.5rem; }
+.cert-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1.4rem; display: flex; gap: 1rem; align-items: flex-start; transition: all 0.2s; }
+.cert-card:hover { border-color: var(--clay); box-shadow: var(--shadow-sm); }
+.cert-icon { width: 36px; height: 36px; border-radius: 8px; background: var(--accent-light); border: 1px solid rgba(193,127,62,0.18); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.cert-icon svg { stroke: var(--accent); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.cert-issuer { font-family: 'Fira Mono', monospace; font-size: 0.63rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem; }
+.cert-name { font-size: 0.88rem; font-weight: 500; color: var(--bark); line-height: 1.4; }
+
+@media (max-width: 900px) {
+  .about-hero { grid-template-columns: 1fr; padding: 3rem 1.5rem; gap: 3rem; }
+  .about-hero-photo { position: static; max-width: 280px; }
+  .skills-inner { padding: 3.5rem 1.5rem; }
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+  .experience-section { padding: 3.5rem 1.5rem; }
+  .education-inner { padding: 3.5rem 1.5rem; }
+  .edu-card { grid-template-columns: 1fr; }
+  .certs-section { padding: 3.5rem 1.5rem; }
+  .certs-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<nav id="navbar">
+  <a href="index.html" class="nav-logo">Noor<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+<!-- ABOUT HERO -->
+<div class="about-hero">
+  <div class="about-text">
+    <div class="section-label reveal">About Me</div>
+    <h1 class="reveal">Hi, I'm<br><em style="font-style:italic;color:var(--accent)">Noor-ul-Ain</em></h1>
+    <p class="reveal">I'm a final-year <strong>Business Data Analytics</strong> student at COMSATS University Islamabad, combining business thinking with data-driven insights to solve real-world problems.</p>
+    <p class="reveal">My work spans the full analytics pipeline — from messy raw data all the way to polished, decision-ready dashboards. I've worked on <strong>HR analytics</strong>, <strong>deep learning-based NLP</strong>, <strong>regression modeling</strong>, and <strong>LMS development</strong>, always with the end-user and business impact in mind.</p>
+    <p class="reveal">I'm passionate about the intersection of people and data — using numbers to understand human behavior, whether that's employee performance, customer purchasing, or workforce skill gaps.</p>
+    <p class="reveal">Currently looking for an <strong>entry-level data analyst or business analyst role</strong> where I can grow alongside a data-driven team and contribute from day one.</p>
+    <div style="margin-top:2rem" class="reveal">
+      <a href="contact.html" class="btn btn-primary" style="margin-right:1rem">Let's Connect</a>
+      <a href="projects.html" class="btn btn-outline">See My Work</a>
+    </div>
+  </div>
+
+  <div class="about-hero-photo reveal">
+    <div class="about-photo-frame">
+      <img src="images/profile.jpeg" alt="Noor-ul-Ain Saqib">
+    </div>
+    <div class="about-strip">
+      <div class="strip-row"><span class="strip-label">Location</span><span class="strip-val">Islamabad, PK</span></div>
+      <div class="strip-row"><span class="strip-label">Status</span><span class="strip-val available">Available</span></div>
+      <div class="strip-row"><span class="strip-label">Degree</span><span class="strip-val">BS BDA · 2026</span></div>
+      <div class="strip-row"><span class="strip-label">CGPA</span><span class="strip-val">3.5 / 4.0</span></div>
+      <div class="strip-row"><span class="strip-label">Languages</span><span class="strip-val">English · Urdu</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<div class="skills-section">
+  <div class="skills-inner">
+    <div class="section-label reveal">Skills</div>
+    <h2 class="reveal">Technical <em style="font-style:italic;color:var(--accent)">Toolkit</em></h2>
+    <div class="skills-grid">
+
+      <div class="skill-cat reveal">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon"><svg width="16" height="16" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+          <div class="skill-cat-title">Programming &amp; Tools</div>
+        </div>
+        <div class="skill-tags"><span class="tag">Python</span><span class="tag">SQL</span><span class="tag">Jupyter</span><span class="tag">Google Colab</span><span class="tag">Excel</span><span class="tag">Power BI</span><span class="tag">Streamlit</span><span class="tag">Google Sheets</span></div>
+      </div>
+
+      <div class="skill-cat reveal">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+          <div class="skill-cat-title">Machine Learning</div>
+        </div>
+        <div class="skill-tags"><span class="tag">Random Forest</span><span class="tag">XGBoost</span><span class="tag">Logistic Regression</span><span class="tag">K-Means</span><span class="tag">Scikit-learn</span><span class="tag">Model Evaluation</span></div>
+      </div>
+
+      <div class="skill-cat reveal">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon"><svg width="16" height="16" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+          <div class="skill-cat-title">Deep Learning &amp; NLP</div>
+        </div>
+        <div class="skill-tags"><span class="tag">LSTM</span><span class="tag">Word2Vec</span><span class="tag">NLP Pipelines</span><span class="tag">Text Classification</span><span class="tag">Skill Extraction</span></div>
+      </div>
+
+      <div class="skill-cat reveal">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon"><svg width="16" height="16" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+          <div class="skill-cat-title">Data Analysis</div>
+        </div>
+        <div class="skill-tags"><span class="tag">EDA</span><span class="tag">Feature Engineering</span><span class="tag">Data Cleaning</span><span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Statistical Analysis</span></div>
+      </div>
+
+      <div class="skill-cat reveal">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon"><svg width="16" height="16" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
+          <div class="skill-cat-title">Visualization &amp; Dashboards</div>
+        </div>
+        <div class="skill-tags"><span class="tag">Matplotlib</span><span class="tag">Seaborn</span><span class="tag">Power BI</span><span class="tag">Dashboard Dev</span></div>
+      </div>
+
+      <div class="skill-cat reveal">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div class="skill-cat-title">Domain Knowledge</div>
+        </div>
+        <div class="skill-tags"><span class="tag">HR Analytics</span><span class="tag">Business Analytics</span><span class="tag">Workforce Planning</span><span class="tag">Project Management</span></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="experience-section">
+  <div class="section-label reveal">Experience</div>
+  <h2 class="reveal">Work <em style="font-style:italic;color:var(--accent)">History</em></h2>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <div class="timeline-dot accent"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">November 2025</div>
+        <div class="timeline-role">DataFest Volunteer &amp; Ambassador</div>
+        <div class="timeline-org">Pakistan Bureau of Statistics</div>
+        <ul class="timeline-bullets">
+          <li>Supported event coordination and participant engagement at the national data festival</li>
+          <li>Conducted awareness sessions engaging students in digital data initiatives</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-card">
+        <div class="timeline-date">July – August 2025</div>
+        <div class="timeline-role">Administrative Intern</div>
+        <div class="timeline-org">Khawaja &amp; Sons</div>
+        <ul class="timeline-bullets">
+          <li>Managed documentation and operational records with accuracy and efficiency</li>
+          <li>Assisted in data entry, reporting, and administrative workflow improvements</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EDUCATION -->
+<div class="education-section">
+  <div class="education-inner">
+    <div class="section-label reveal">Education</div>
+    <h2 class="reveal">Academic <em style="font-style:italic;color:var(--accent)">Background</em></h2>
+    <div class="edu-card reveal">
+      <div class="edu-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+      </div>
+      <div>
+        <div class="edu-degree">BS (Hons) Business Data Analytics</div>
+        <div class="edu-uni">COMSATS University Islamabad</div>
+        <div class="edu-meta-row">
+          <div class="edu-meta-item">Period: <span>2022 – 2026</span></div>
+          <div class="edu-meta-item">CGPA: <span>3.5 / 4.0</span></div>
+        </div>
+        <p class="edu-desc">Pursuing a degree combining business acumen with data-driven insights. The program covers data visualization, predictive analysis, and decision-making strategies using advanced analytical tools — providing a strong foundation for tackling real-world business challenges.</p>
+        <div class="edu-modules-label">Relevant Modules</div>
+        <div class="skill-tags"><span class="tag">Business Analytics</span><span class="tag">Machine Learning</span><span class="tag">Statistical Analysis</span><span class="tag">HR Analytics</span><span class="tag">NLP</span><span class="tag">Data &amp; Dashboards</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<div class="certs-section">
+  <div class="section-label reveal">Credentials</div>
+  <h2 class="reveal">Certifications</h2>
+  <div class="certs-grid">
+    <div class="cert-card reveal">
+      <div class="cert-icon"><svg width="16" height="16" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+      <div><div class="cert-issuer">UC Irvine</div><div class="cert-name">Human Resources Analytics</div></div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon"><svg width="16" height="16" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></div>
+      <div><div class="cert-issuer">DataCamp</div><div class="cert-name">Supervised Learning with Scikit-learn</div></div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon"><svg width="16" height="16" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+      <div><div class="cert-issuer">DataCamp</div><div class="cert-name">Understanding Data Visualization</div></div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon"><svg width="16" height="16" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+      <div><div class="cert-issuer">Online Course</div><div class="cert-name">Machine Learning Concepts</div></div>
+    </div>
+    <div class="cert-card reveal">
+      <div class="cert-icon"><svg width="16" height="16" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+      <div><div class="cert-issuer">Online Course</div><div class="cert-name">Python Fundamentals</div></div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /page -->
+
+<footer>
+  <p>© 2025 Noor-ul-Ain Saqib · Islamabad, Pakistan</p>
+  <div class="footer-links">
+    <a href="mailto:nurulaix4040@gmail.com">Email</a>
+    <a href="https://www.linkedin.com/in/noor-ul-ain-saqib-922a96284/" target="_blank">LinkedIn</a>
+    <a href="https://www.datascienceportfol.io/nurulaix4040" target="_blank">DS Portfolio</a>
+  </div>
+</footer>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        const siblings = [...e.target.parentElement.children].filter(c => c.classList.contains('reveal'));
+        setTimeout(() => e.target.classList.add('visible'), siblings.indexOf(e.target) * 90);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

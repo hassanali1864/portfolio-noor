@@ -1,0 +1,153 @@
+/* ============================================
+   NOOR-UL-AIN SAQIB PORTFOLIO — SHARED STYLES
+   Warm & Creative · Earthy Tones · Light Theme
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=Jost:wght@300;400;500;600&family=Fira+Mono:wght@400;500&display=swap');
+
+:root {
+  --cream:        #faf6f0;
+  --cream2:       #f3ece0;
+  --parchment:    #e8dece;
+  --sand:         #d4c4a8;
+  --clay:         #b5956a;
+  --terra:        #8b5e3c;
+  --bark:         #4a3728;
+  --charcoal:     #2c2318;
+  --muted:        #8a7a6a;
+  --border:       rgba(74,55,40,0.12);
+  --border-med:   rgba(74,55,40,0.22);
+  --accent:       #c17f3e;
+  --accent-light: rgba(193,127,62,0.10);
+  --green:        #5a7a5a;
+  --shadow-sm:    0 2px 12px rgba(74,55,40,0.08);
+  --shadow-md:    0 8px 32px rgba(74,55,40,0.12);
+  --shadow-lg:    0 20px 60px rgba(74,55,40,0.16);
+  --radius:       14px;
+  --radius-sm:    8px;
+}
+
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--charcoal);
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* subtle paper grain */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none; z-index: 9998;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.1rem 4rem;
+  background: rgba(250,246,240,0.93);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: var(--shadow-sm); }
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem; font-weight: 600;
+  color: var(--bark); text-decoration: none; letter-spacing: 0.02em;
+}
+.nav-logo span { color: var(--accent); }
+
+.nav-links { display: flex; gap: 0.25rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-family: 'Fira Mono', monospace; font-size: 0.72rem;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  padding: 0.45rem 0.9rem; border-radius: 100px; transition: all 0.2s;
+}
+.nav-links a:hover { color: var(--bark); background: var(--cream2); }
+.nav-links a.active { color: var(--accent); background: var(--cream2); font-weight: 500; }
+
+.page { padding-top: 72px; min-height: 100vh; }
+
+/* ── TYPE ── */
+h1,h2,h3,h4 { font-family: 'Cormorant Garamond', serif; line-height: 1.15; color: var(--bark); }
+h1 { font-size: clamp(3rem,6vw,5.5rem); font-weight: 600; letter-spacing: -0.01em; }
+h2 { font-size: clamp(2rem,4vw,3rem); font-weight: 500; }
+h3 { font-size: 1.5rem; font-weight: 500; }
+p  { color: var(--muted); font-size: 1rem; line-height: 1.75; }
+
+.section { padding: 5rem 4rem; max-width: 1160px; margin: 0 auto; }
+
+.section-label {
+  font-family: 'Fira Mono', monospace; font-size: 0.7rem;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem;
+}
+
+/* ── BUTTONS ── */
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.8rem 1.8rem;
+  font-family: 'Jost', sans-serif; font-size: 0.88rem; font-weight: 500;
+  text-decoration: none; border-radius: var(--radius-sm);
+  transition: all 0.22s; cursor: pointer; border: none;
+}
+.btn-primary { background: var(--bark); color: var(--cream); }
+.btn-primary:hover { background: var(--charcoal); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.btn-outline { background: transparent; color: var(--bark); border: 1.5px solid var(--border-med); }
+.btn-outline:hover { background: var(--cream2); border-color: var(--clay); }
+
+/* ── TAGS ── */
+.tag {
+  display: inline-block; padding: 0.22rem 0.65rem;
+  font-family: 'Fira Mono', monospace; font-size: 0.7rem; border-radius: 4px;
+  background: var(--cream2); color: var(--terra); border: 1px solid var(--parchment);
+  transition: all 0.2s;
+}
+.tag:hover { background: var(--accent-light); border-color: var(--clay); color: var(--accent); }
+
+/* ── ICON BOX (replaces emojis) ── */
+.icon-box {
+  display: flex; align-items: center; justify-content: center;
+  border-radius: var(--radius-sm);
+  background: var(--accent-light);
+  border: 1px solid rgba(193,127,62,0.18);
+  flex-shrink: 0;
+}
+.icon-box svg { stroke: var(--accent); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.icon-box.dark { background: rgba(74,55,40,0.06); border-color: rgba(74,55,40,0.14); }
+.icon-box.dark svg { stroke: var(--bark); }
+
+/* ── DIVIDER ── */
+.divider { width: 100%; height: 1px; background: var(--border); }
+
+/* ── REVEAL ── */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--charcoal); color: var(--sand);
+  padding: 2.5rem 4rem;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+}
+footer p { color: var(--sand); font-size: 0.82rem; }
+footer a { color: var(--clay); text-decoration: none; font-family: 'Fira Mono', monospace; font-size: 0.72rem; transition: color 0.2s; }
+footer a:hover { color: var(--cream); }
+.footer-links { display: flex; gap: 1.5rem; }
+
+/* ── MOBILE ── */
+@media (max-width: 768px) {
+  nav { padding: 1rem 1.5rem; }
+  .section { padding: 3.5rem 1.5rem; }
+  footer { padding: 2rem 1.5rem; flex-direction: column; text-align: center; }
+  .footer-links { justify-content: center; }
+}
+@media (max-width: 480px) { .nav-links { display: none; } }
