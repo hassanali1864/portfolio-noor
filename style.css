@@ -908,16 +908,16 @@ footer p { font-size: 0.82rem; color: var(--text-muted); margin-top: 1.2rem; }
   animation: expandRing 4s ease-out infinite;
   pointer-events: none;
   top: 50%;
-  right: 20%;
-  transform: translate(50%, -50%);
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .ring-1 { width: 300px; height: 300px; animation-delay: 0s; }
 .ring-2 { width: 460px; height: 460px; animation-delay: 1.3s; }
 .ring-3 { width: 620px; height: 620px; animation-delay: 2.6s; }
 
 @keyframes expandRing {
-  0%   { opacity: 0.6; transform: translate(50%,-50%) scale(0.85); }
-  100% { opacity: 0;   transform: translate(50%,-50%) scale(1.15); }
+  0%   { opacity: 0.6; transform: translate(-50%,-50%) scale(0.85); }
+  100% { opacity: 0;   transform: translate(-50%,-50%) scale(1.15); }
 }
 
 /* Floating stat chips */
@@ -962,21 +962,21 @@ footer p { font-size: 0.82rem; color: var(--text-muted); margin-top: 1.2rem; }
   background: var(--accent);
   pointer-events: none;
   top: 50%;
-  right: 20%;
+  left: 50%;
 }
 .od-1 { animation: orbit1 6s linear infinite; background: #346739; }
 .od-2 { animation: orbit2 8s linear infinite; background: #408A71; width:7px; height:7px; }
 .od-3 { animation: orbit3 10s linear infinite; background: #A0D585; width:5px; height:5px; }
 
 @keyframes orbit1 {
-  0%   { transform: rotate(0deg)   translateX(230px) rotate(0deg); }
-  100% { transform: rotate(360deg) translateX(230px) rotate(-360deg); }
+  0%   { transform: translate(-50%,-50%) rotate(0deg)   translateX(230px); }
+  100% { transform: translate(-50%,-50%) rotate(360deg) translateX(230px); }
 }
 @keyframes orbit2 {
-  0%   { transform: rotate(120deg)  translateX(270px) rotate(-120deg); }
-  100% { transform: rotate(480deg)  translateX(270px) rotate(-480deg); }
+  0%   { transform: translate(-50%,-50%) rotate(120deg)  translateX(270px); }
+  100% { transform: translate(-50%,-50%) rotate(480deg)  translateX(270px); }
 }
 @keyframes orbit3 {
-  0%   { transform: rotate(240deg)  translateX(310px) rotate(-240deg); }
-  100% { transform: rotate(600deg)  translateX(310px) rotate(-600deg); }
+  0%   { transform: translate(-50%,-50%) rotate(240deg)  translateX(310px); }
+  100% { transform: translate(-50%,-50%) rotate(600deg)  translateX(310px); }
 }

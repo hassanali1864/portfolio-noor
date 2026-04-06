@@ -53,37 +53,6 @@ tailwind.config = {
 <div class="hero-wrapper">
   <div class="hero-section">
 
-    <!-- Hero animated particles -->
-    <div class="hero-particles" aria-hidden="true">
-      <!-- Animated rings -->
-      <div class="hero-ring ring-1"></div>
-      <div class="hero-ring ring-2"></div>
-      <div class="hero-ring ring-3"></div>
-
-      <!-- Floating data labels -->
-      <div class="hero-stat-float" style="top:10%;left:2%">
-        <span class="hsf-icon">📈</span>
-        <span class="hsf-text">ML Models</span>
-      </div>
-      <div class="hero-stat-float" style="top:75%;left:0%">
-        <span class="hsf-icon">⚡</span>
-        <span class="hsf-text">R² 0.96</span>
-      </div>
-      <div class="hero-stat-float" style="top:5%;right:2%">
-        <span class="hsf-icon">◈</span>
-        <span class="hsf-text">94.2% acc</span>
-      </div>
-      <div class="hero-stat-float" style="bottom:15%;right:1%">
-        <span class="hsf-icon">∑</span>
-        <span class="hsf-text">1,240 rows</span>
-      </div>
-
-      <!-- Small orbiting dots around image -->
-      <div class="orbit-dot od-1"></div>
-      <div class="orbit-dot od-2"></div>
-      <div class="orbit-dot od-3"></div>
-    </div>
-
     <!-- Left: Content -->
     <div class="hero-content reveal">
       <h1 class="hero-heading" style="font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:600;font-style:normal;color:var(--primary);text-transform:uppercase;letter-spacing:0.08em;line-height:1.3;">DATA ANALYTICS PROFESSIONAL</h1>
@@ -112,8 +81,34 @@ tailwind.config = {
 
     <!-- Right: Photo -->
     <div class="hero-photo-wrap reveal">
-      <div class="profile-ring">
-        <img src="images/profile-new.jpeg" alt="Noor-ul-Ain Saqib — Data Analytics Professional, smiling in professional attire">
+      <div style="position:relative;display:inline-block;">
+        <div class="hero-particles" aria-hidden="true">
+          <div class="hero-ring ring-1"></div>
+          <div class="hero-ring ring-2"></div>
+          <div class="hero-ring ring-3"></div>
+          <div class="hero-stat-float" style="top:10%;left:2%">
+            <span class="hsf-icon">📈</span>
+            <span class="hsf-text">ML Models</span>
+          </div>
+          <div class="hero-stat-float" style="top:75%;left:0%">
+            <span class="hsf-icon">⚡</span>
+            <span class="hsf-text">R² 0.96</span>
+          </div>
+          <div class="hero-stat-float" style="top:5%;right:2%">
+            <span class="hsf-icon">◈</span>
+            <span class="hsf-text">94.2% acc</span>
+          </div>
+          <div class="hero-stat-float" style="bottom:15%;right:1%">
+            <span class="hsf-icon">∑</span>
+            <span class="hsf-text">1,240 rows</span>
+          </div>
+          <div class="orbit-dot od-1"></div>
+          <div class="orbit-dot od-2"></div>
+          <div class="orbit-dot od-3"></div>
+        </div>
+        <div class="profile-ring">
+          <img src="images/profile-new.jpeg" alt="Noor-ul-Ain Saqib — Data Analytics Professional, smiling in professional attire">
+        </div>
       </div>
       <div class="photo-labels">
         <div class="profile-badge">
