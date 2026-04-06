@@ -3,205 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noor-ul-Ain Saqib — Business Data Analyst</title>
+<title>Noor-ul-Ain Saqib — Data Analytics Professional</title>
+<meta name="description" content="Noor ul Ain Saqib — Data Analytics Professional specializing in machine learning, data visualization, and business intelligence.">
+<meta property="og:title" content="Noor ul Ain Saqib | Data Analytics Professional">
+<meta property="og:description" content="Portfolio of data analytics projects including ML models, dashboards, and data analysis.">
+<meta property="og:image" content="images/profile-new.jpeg">
+<meta name="theme-color" content="#E8B4C8">
 <link rel="stylesheet" href="style.css">
-<style>
-.hero {
-  min-height: calc(100vh - 72px);
-  display: grid;
-  grid-template-columns: 1fr 400px;
-  gap: 4rem;
-  align-items: center;
-  padding: 5rem 4rem 4rem;
-  max-width: 1160px;
-  margin: 0 auto;
-  position: relative;
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        cream: '#FDFAF6',
+        blush: '#E8B4C8',
+        sage: '#B5C9B7',
+        lavender: '#F2E6FF',
+        card: '#FFF5F7',
+      },
+      fontFamily: {
+        display: ['Playfair Display', 'serif'],
+        body: ['DM Sans', 'sans-serif'],
+      }
+    }
+  }
 }
-.hero-bg-blob {
-  position: fixed; top: -100px; right: -150px;
-  width: 600px; height: 600px; border-radius: 50%;
-  background: radial-gradient(ellipse, rgba(193,127,62,0.06) 0%, transparent 70%);
-  pointer-events: none; z-index: 0;
-}
-.hero-content { position: relative; z-index: 1; }
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 0.7rem;
-  font-family: 'Fira Mono', monospace; font-size: 0.72rem;
-  letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
-  margin-bottom: 1.8rem;
-  animation: fadeUp 0.7s ease both;
-}
-.hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1.5px; background: var(--accent); }
-.avail-dot {
-  width: 7px; height: 7px; border-radius: 50%; background: var(--green);
-  box-shadow: 0 0 0 3px rgba(90,122,90,0.2);
-  animation: pulse-g 2s infinite;
-}
-@keyframes pulse-g {
-  0%,100% { box-shadow: 0 0 0 3px rgba(90,122,90,0.2); }
-  50%      { box-shadow: 0 0 0 6px rgba(90,122,90,0.08); }
-}
-.hero h1 { animation: fadeUp 0.7s 0.1s ease both; margin-bottom: 1.5rem; }
-.hero h1 em { font-style: italic; color: var(--accent); display: block; }
-.hero-desc { font-size: 1.05rem; max-width: 500px; margin-bottom: 2.5rem; animation: fadeUp 0.7s 0.2s ease both; }
-.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.3s ease both; }
-.hero-stats {
-  display: flex; gap: 2.5rem; margin-top: 4rem;
-  padding-top: 2.5rem; border-top: 1px solid var(--border);
-  animation: fadeUp 0.7s 0.4s ease both;
-}
-.hero-stat-val { font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 600; color: var(--bark); line-height: 1; }
-.hero-stat-label { font-size: 0.72rem; color: var(--muted); margin-top: 0.25rem; font-family: 'Fira Mono', monospace; text-transform: uppercase; letter-spacing: 0.08em; }
-
-/* Photo */
-.hero-photo-wrap { position: relative; z-index: 1; animation: fadeUp 0.7s 0.15s ease both; }
-.hero-photo-frame { position: relative; border-radius: 20px; overflow: hidden; aspect-ratio: 3/4; box-shadow: var(--shadow-lg); }
-.hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-.hero-photo-frame::before {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(to bottom, transparent 60%, rgba(44,35,24,0.28));
-  z-index: 1;
-}
-.photo-badge {
-  position: absolute; bottom: 1.5rem; left: 1.5rem; right: 1.5rem; z-index: 2;
-  background: rgba(250,246,240,0.93); backdrop-filter: blur(12px);
-  border-radius: 10px; padding: 0.9rem 1.2rem; border: 1px solid rgba(255,255,255,0.8);
-}
-.photo-badge-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--bark); }
-.photo-badge-role { font-family: 'Fira Mono', monospace; font-size: 0.65rem; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.15rem; }
-.dot-grid {
-  position: absolute; top: -18px; right: -18px; width: 72px; height: 72px;
-  background-image: radial-gradient(circle, var(--clay) 1.5px, transparent 1.5px);
-  background-size: 12px 12px; opacity: 0.3; z-index: 0;
-}
-.dot-grid-2 {
-  position: absolute; bottom: -18px; left: -18px; width: 56px; height: 56px;
-  background-image: radial-gradient(circle, var(--clay) 1.5px, transparent 1.5px);
-  background-size: 12px 12px; opacity: 0.2; z-index: 0;
-}
-
-/* Skills marquee */
-.skills-strip { background: var(--charcoal); padding: 1.1rem 0; overflow: hidden; }
-.skills-strip-inner { display: flex; gap: 0; animation: marquee 32s linear infinite; white-space: nowrap; }
-.skills-strip-inner span {
-  font-family: 'Fira Mono', monospace; font-size: 0.7rem; color: var(--sand);
-  letter-spacing: 0.12em; text-transform: uppercase;
-  display: flex; align-items: center; gap: 0; flex-shrink: 0;
-  padding: 0 1.8rem;
-}
-.skills-strip-inner span::after { content: '/'; color: var(--clay); padding-left: 1.8rem; }
-@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-
-/* About preview */
-.home-about { background: var(--cream2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-.home-about-inner {
-  max-width: 1160px; margin: 0 auto; padding: 5rem 4rem;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
-}
-.home-about-text h2 { margin-bottom: 1.2rem; }
-.home-about-text p  { margin-bottom: 1rem; }
-
-.quick-skills { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.quick-skill-item {
-  background: #fff; border: 1px solid var(--border); border-radius: var(--radius-sm);
-  padding: 1.3rem; transition: all 0.2s; display: flex; flex-direction: column; gap: 0.6rem;
-}
-.quick-skill-item:hover { border-color: var(--clay); box-shadow: var(--shadow-sm); }
-.qsi-icon-wrap {
-  width: 36px; height: 36px;
-  display: flex; align-items: center; justify-content: center;
-  border-radius: 8px; background: var(--accent-light); border: 1px solid rgba(193,127,62,0.18);
-}
-.qsi-icon-wrap svg { stroke: var(--accent); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
-.qsi-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--bark); }
-.qsi-text  { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
-
-/* Featured projects */
-.featured-projects { max-width: 1160px; margin: 0 auto; padding: 5rem 4rem; }
-.fp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; margin-top: 3rem; }
-.fp-card {
-  background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
-  overflow: hidden; transition: all 0.25s; text-decoration: none; display: block; color: inherit;
-}
-.fp-card:hover { border-color: var(--sand); box-shadow: var(--shadow-md); transform: translateY(-4px); }
-.fp-card-img { aspect-ratio: 16/9; overflow: hidden; background: var(--cream2); position: relative; }
-.fp-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-.fp-card:hover .fp-card-img img { transform: scale(1.04); }
-.fp-placeholder {
-  width: 100%; height: 100%;
-  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8rem;
-}
-.fp-placeholder svg { stroke: var(--clay); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; opacity: 0.6; }
-.fp-placeholder-label { font-family: 'Fira Mono', monospace; font-size: 0.62rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
-.fp-card-body { padding: 1.4rem; }
-.fp-card-category { font-family: 'Fira Mono', monospace; font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
-.fp-card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 600; color: var(--bark); margin-bottom: 0.5rem; line-height: 1.3; }
-.fp-card-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-.fp-card-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-.fp-view-all { text-align: center; margin-top: 3rem; }
-
-@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-
-@media (max-width: 900px) {
-  .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem; text-align: center; }
-  .hero-photo-wrap { max-width: 280px; margin: 0 auto; }
-  .hero-desc { margin: 0 auto 2.5rem; }
-  .hero-actions { justify-content: center; }
-  .hero-stats { justify-content: center; }
-  .hero-eyebrow { justify-content: center; }
-  .home-about-inner { grid-template-columns: 1fr; gap: 3rem; padding: 3.5rem 1.5rem; }
-  .featured-projects { padding: 3.5rem 1.5rem; }
-  .fp-grid { grid-template-columns: 1fr; }
-}
-</style>
+</script>
 </head>
 <body>
 
+<!-- NAVIGATION -->
 <nav id="navbar">
   <a href="index.html" class="nav-logo">Noor<span>.</span></a>
-  <ul class="nav-links">
+  <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">&#9776;</button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="projects.html">Projects</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 
 <div class="page">
-<div class="hero-bg-blob"></div>
 
 <!-- HERO -->
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-eyebrow">
-      <div class="avail-dot"></div>
-      Available for opportunities · Islamabad, PK
-    </div>
-    <h1>Business<br>Data <em>Analyst</em></h1>
-    <p class="hero-desc">Final-year analytics student at COMSATS University — turning messy datasets into clear stories through machine learning, HR analytics, and interactive dashboards.</p>
-    <div class="hero-actions">
-      <a href="projects.html" class="btn btn-primary">View My Work</a>
-      <a href="contact.html" class="btn btn-outline">Get In Touch</a>
-    </div>
-    <div class="hero-stats">
-      <div><div class="hero-stat-val">7+</div><div class="hero-stat-label">Projects</div></div>
-      <div><div class="hero-stat-val">3.5</div><div class="hero-stat-label">CGPA</div></div>
-      <div><div class="hero-stat-val">5</div><div class="hero-stat-label">Certifications</div></div>
-    </div>
-  </div>
+<div class="hero-wrapper">
+  <div class="hero-section">
 
-  <div class="hero-photo-wrap">
-    <div class="dot-grid"></div>
-    <div class="dot-grid-2"></div>
-    <div class="hero-photo-frame">
-      <img src="images/profile.jpeg" alt="Noor-ul-Ain Saqib">
-      <div class="photo-badge">
-        <div class="photo-badge-name">Noor-ul-Ain Saqib</div>
-        <div class="photo-badge-role">Business Data Analyst</div>
+    <!-- Left: Content -->
+    <div class="hero-content reveal">
+      <div class="hero-eyebrow">
+        <div class="avail-badge">
+          <div class="avail-dot"></div>
+          ✦ Available for Opportunities &nbsp;·&nbsp; Islamabad, PK
+        </div>
+      </div>
+
+      <h1 class="hero-heading">Data Analytics<br><em>Professional</em></h1>
+      <p class="hero-desc">Turning messy datasets into clear, decision-ready stories — through machine learning, HR analytics, and interactive dashboards. Based in Islamabad, open to opportunities worldwide.</p>
+
+      <div class="hero-actions">
+        <a href="images/noorulain-cv.pdf" download="NoorulAin_CV.pdf" class="btn btn-blush">⬇ Download CV</a>
+        <a href="projects.html" class="btn btn-sage">View Projects</a>
+      </div>
+
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-val">7+</div>
+          <div class="hero-stat-label">Projects</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">3.5</div>
+          <div class="hero-stat-label">CGPA</div>
+        </div>
+        <div>
+          <div class="hero-stat-val">5</div>
+          <div class="hero-stat-label">Certifications</div>
+        </div>
       </div>
     </div>
+
+    <!-- Right: Photo -->
+    <div class="hero-photo-wrap reveal">
+      <div class="profile-ring">
+        <img src="images/profile-new.jpeg" alt="Noor-ul-Ain Saqib — Data Analytics Professional, smiling in professional attire">
+      </div>
+      <div class="profile-badge">
+        <strong>Noor-ul-Ain Saqib</strong> &nbsp;·&nbsp; Data Analytics Professional
+      </div>
+    </div>
+
   </div>
-</section>
+</div><!-- /hero-wrapper -->
 
 <!-- SKILLS MARQUEE -->
 <div class="skills-strip">
@@ -211,6 +106,7 @@
     <span>NLP</span><span>Streamlit</span><span>Data Visualization</span>
     <span>Random Forest</span><span>Deep Learning</span><span>EDA</span>
     <span>Pandas</span><span>K-Means</span><span>Excel</span>
+    <!-- duplicate for seamless loop -->
     <span>Python</span><span>Machine Learning</span><span>SQL</span>
     <span>Power BI</span><span>HR Analytics</span><span>XGBoost</span>
     <span>NLP</span><span>Streamlit</span><span>Data Visualization</span>
@@ -224,10 +120,11 @@
   <div class="home-about-inner">
     <div class="home-about-text reveal">
       <div class="section-label">About Me</div>
-      <h2>Data meets<br><em style="font-style:italic;color:var(--accent)">Strategy</em></h2>
-      <p>I'm a final-year Business Data Analytics student with hands-on experience in machine learning, statistical modeling, and dashboard development. My work focuses on solving real-world problems through data.</p>
-      <p>I've built predictive HR models, deep learning-based skills ontologies, and interactive Streamlit applications — always with an eye on the business impact behind the numbers.</p>
-      <a href="about.html" class="btn btn-outline" style="margin-top:1.2rem">More About Me →</a>
+      <h2 class="heading-line">Data meets<br><em style="font-style:italic;color:var(--blush)">Strategy</em></h2>
+      <br>
+      <p>I'm a <strong>Data Analytics Professional</strong> with hands-on experience in machine learning, statistical modeling, and dashboard development. My work focuses on solving real-world problems through data.</p>
+      <p style="margin-top:1rem">I've built predictive HR models, deep learning-based skills ontologies, and interactive Streamlit applications — always with an eye on the business impact behind the numbers.</p>
+      <a href="about.html" class="btn btn-outline" style="margin-top:1.8rem">More About Me →</a>
     </div>
     <div class="quick-skills reveal">
       <div class="quick-skill-item">
@@ -246,7 +143,7 @@
       </div>
       <div class="quick-skill-item">
         <div class="qsi-icon-wrap">
-          <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/><path d="M8 12h1m6 0h1M12 8v1m0 6v1"/></svg>
+          <svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
         </div>
         <div class="qsi-title">Deep Learning</div>
         <div class="qsi-text">LSTM, Word2Vec, NLP pipelines</div>
@@ -265,46 +162,49 @@
 <!-- FEATURED PROJECTS -->
 <div class="featured-projects">
   <div class="section-label reveal">Selected Work</div>
-  <h2 class="reveal">Featured <em style="font-style:italic;color:var(--accent)">Projects</em></h2>
+  <h2 class="reveal">Featured <em style="font-style:italic;color:var(--blush)">Projects</em></h2>
+
   <div class="fp-grid">
 
     <a href="projects.html#ssgc" class="fp-card reveal">
-      <div class="fp-card-img"><img src="images/ssgc-3.jpeg" alt="SSGC LMS"></div>
+      <div class="fp-card-img">
+        <img src="images/ssgc-3.jpeg" alt="SSGC Learning Management System — analytics dashboard showing training completion and skills heatmap" loading="lazy">
+      </div>
       <div class="fp-card-body">
         <div class="fp-card-category">LMS · Dashboard Development</div>
         <div class="fp-card-title">SSGC Learning Management System</div>
         <div class="fp-card-desc">End-to-end LMS for Sui Southern Gas Company — training tracking, skills heatmaps, and analytics dashboards.</div>
-        <div class="fp-card-tags"><span class="tag">Analytics</span><span class="tag">Dashboard</span><span class="tag">LMS</span></div>
+        <div class="fp-card-tags"><span class="tag blush">Analytics</span><span class="tag sage">Dashboard</span><span class="tag">LMS</span></div>
       </div>
     </a>
 
     <a href="projects.html#hr" class="fp-card reveal">
       <div class="fp-card-img">
-        <div class="fp-placeholder" style="background:linear-gradient(135deg,#f3ece0,#e8dece)">
+        <div class="fp-placeholder ph-a">
           <svg width="36" height="36" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           <div class="fp-placeholder-label">HR Analytics</div>
         </div>
       </div>
       <div class="fp-card-body">
         <div class="fp-card-category">Machine Learning · HR</div>
-        <div class="fp-card-title">HR Analytics — Performance & Career Management</div>
+        <div class="fp-card-title">HR Analytics — Performance &amp; Career Management</div>
         <div class="fp-card-desc">Random Forest, XGBoost and K-Means for promotion prediction and employee segmentation with Streamlit app.</div>
-        <div class="fp-card-tags"><span class="tag">XGBoost</span><span class="tag">Streamlit</span><span class="tag">K-Means</span></div>
+        <div class="fp-card-tags"><span class="tag blush">XGBoost</span><span class="tag sage">Streamlit</span><span class="tag">K-Means</span></div>
       </div>
     </a>
 
     <a href="projects.html#skills" class="fp-card reveal">
       <div class="fp-card-img">
-        <div class="fp-placeholder" style="background:linear-gradient(135deg,#e8dece,#d4c4a8)">
+        <div class="fp-placeholder ph-c">
           <svg width="36" height="36" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
           <div class="fp-placeholder-label">NLP · Deep Learning</div>
         </div>
       </div>
       <div class="fp-card-body">
         <div class="fp-card-category">NLP · Deep Learning</div>
-        <div class="fp-card-title">Skills Ontology & Gap Analysis</div>
+        <div class="fp-card-title">Skills Ontology &amp; Gap Analysis</div>
         <div class="fp-card-desc">LSTM and Word2Vec to extract and classify skills from job descriptions — visualizing competency gaps for workforce planning.</div>
-        <div class="fp-card-tags"><span class="tag">LSTM</span><span class="tag">Word2Vec</span><span class="tag">NLP</span></div>
+        <div class="fp-card-tags"><span class="tag blush">LSTM</span><span class="tag">Word2Vec</span><span class="tag sage">NLP</span></div>
       </div>
     </a>
 
@@ -317,28 +217,46 @@
 </div><!-- /page -->
 
 <footer>
-  <p>© 2025 Noor-ul-Ain Saqib · Islamabad, Pakistan</p>
+  <p class="footer-tagline">"Turning data into decisions."</p>
   <div class="footer-links">
-    <a href="mailto:nurulaix4040@gmail.com">Email</a>
-    <a href="https://www.linkedin.com/in/noor-ul-ain-saqib-922a96284/" target="_blank">LinkedIn</a>
-    <a href="https://www.datascienceportfol.io/nurulaix4040" target="_blank">DS Portfolio</a>
+    <a href="https://mail.google.com/mail/?view=cm&to=nurulaix4040@gmail.com&su=Portfolio%20Inquiry" target="_blank" rel="noopener noreferrer" class="footer-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Email
+    </a>
+    <a href="https://www.linkedin.com/in/noor-ul-ain-saqib-922a96284/" target="_blank" class="footer-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://www.datascienceportfol.io/nurulaix4040" target="_blank" class="footer-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      DS Portfolio
+    </a>
   </div>
+  <p>© 2025 Noor-ul-Ain Saqib · Islamabad, Pakistan</p>
 </footer>
 
 <script>
+  // Scroll nav
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
-  const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) {
-        const siblings = [...e.target.parentElement.children].filter(c => c.classList.contains('reveal'));
-        setTimeout(() => e.target.classList.add('visible'), siblings.indexOf(e.target) * 100);
-        io.unobserve(e.target);
+
+  // Hamburger
+  const navToggle = document.getElementById('navToggle');
+  const navLinks  = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target)) navLinks.classList.remove('open');
+  });
+
+  // Staggered reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
       }
     });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => io.observe(el));
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>

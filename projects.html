@@ -4,129 +4,72 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Projects — Noor-ul-Ain Saqib</title>
+<meta name="description" content="Noor ul Ain Saqib — Data Analytics Professional specializing in machine learning, data visualization, and business intelligence.">
+<meta property="og:title" content="Noor ul Ain Saqib | Data Analytics Professional">
+<meta property="og:description" content="Portfolio of data analytics projects including ML models, dashboards, and data analysis.">
+<meta property="og:image" content="images/profile-new.jpeg">
+<meta name="theme-color" content="#E8B4C8">
 <link rel="stylesheet" href="style.css">
-<style>
-.projects-hero { padding: 4rem 4rem 2rem; max-width: 1160px; margin: 0 auto; }
-.projects-hero h1 { margin-bottom: 0.8rem; }
-.projects-hero p  { max-width: 560px; font-size: 1.05rem; }
-
-.filter-bar { max-width: 1160px; margin: 0 auto; padding: 0 4rem 2.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.filter-btn {
-  padding: 0.45rem 1.1rem; font-family: 'Fira Mono', monospace;
-  font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
-  border: 1.5px solid var(--border-med); border-radius: 100px;
-  background: transparent; color: var(--muted); cursor: pointer; transition: all 0.2s;
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        cream: '#FDFAF6',
+        blush: '#E8B4C8',
+        sage: '#B5C9B7',
+        lavender: '#F2E6FF',
+        card: '#FFF5F7',
+      },
+      fontFamily: {
+        display: ['Playfair Display', 'serif'],
+        body: ['DM Sans', 'sans-serif'],
+      }
+    }
+  }
 }
-.filter-btn:hover,.filter-btn.active { background: var(--bark); color: var(--cream); border-color: var(--bark); }
-
-/* Featured */
-.featured-project { background: var(--cream2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 4rem 0; scroll-margin-top: 90px; }
-.featured-project-inner { max-width: 1160px; margin: 0 auto; padding: 0 4rem; }
-
-.featured-badge {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  font-family: 'Fira Mono', monospace; font-size: 0.68rem; color: var(--accent);
-  letter-spacing: 0.12em; text-transform: uppercase;
-  background: var(--accent-light); border: 1px solid rgba(193,127,62,0.25);
-  padding: 0.3rem 0.8rem; border-radius: 100px; margin-bottom: 1.2rem;
-}
-.featured-badge svg { stroke: var(--accent); fill:none; stroke-width:1.8; }
-
-.featured-project h2 { margin-bottom: 1rem; }
-.featured-meta { display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
-.featured-meta-item { font-size: 0.85rem; color: var(--muted); }
-.featured-meta-item strong { color: var(--bark); }
-.featured-project-desc { font-size: 1rem; max-width: 700px; margin-bottom: 1.5rem; line-height: 1.8; }
-.featured-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 3rem; }
-
-.showcase-label {
-  font-family: 'Fira Mono', monospace; font-size: 0.7rem;
-  letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
-  margin-bottom: 1.2rem; display: flex; align-items: center; gap: 0.75rem;
-}
-.showcase-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
-.showcase-scroll { display: flex; flex-direction: column; gap: 2rem; }
-.showcase-item { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); transition: all 0.25s; }
-.showcase-item:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
-.showcase-img { width: 100%; display: block; max-height: 480px; object-fit: cover; object-position: top; border-bottom: 1px solid var(--border); }
-.showcase-caption { padding: 1rem 1.5rem; display: flex; align-items: center; justify-content: space-between; }
-.showcase-caption-num { font-family: 'Fira Mono', monospace; font-size: 0.65rem; color: var(--muted); letter-spacing: 0.1em; }
-.showcase-caption-title { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 600; color: var(--bark); }
-
-/* Other projects */
-.other-projects { max-width: 1160px; margin: 0 auto; padding: 5rem 4rem; }
-.other-projects h2 { margin-bottom: 0.5rem; }
-.other-projects > p { margin-bottom: 3rem; }
-.projects-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-
-.proj-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: all 0.25s; scroll-margin-top: 90px; }
-.proj-card:hover { border-color: var(--sand); box-shadow: var(--shadow-md); transform: translateY(-4px); }
-
-.proj-placeholder {
-  aspect-ratio: 16/9; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 0.6rem;
-  border-bottom: 1px solid var(--border);
-}
-.proj-placeholder svg { stroke: var(--clay); fill: none; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; opacity: 0.55; }
-.proj-placeholder-label { font-family: 'Fira Mono', monospace; font-size: 0.62rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
-
-.proj-card-body { padding: 1.5rem; }
-.proj-category { font-family: 'Fira Mono', monospace; font-size: 0.63rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.5rem; }
-.proj-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--bark); line-height: 1.3; margin-bottom: 0.75rem; }
-.proj-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.2rem; }
-.proj-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-
-/* placeholder bg variants */
-.ph-a { background: linear-gradient(135deg,#f3ece0,#e8dece); }
-.ph-b { background: linear-gradient(135deg,#e8dece,#d9ccb8); }
-.ph-c { background: linear-gradient(135deg,#ede8df,#ddd3c0); }
-.ph-d { background: linear-gradient(135deg,#f0ebe0,#e2d8c8); }
-.ph-e { background: linear-gradient(135deg,#eae4d8,#d8cdb8); }
-
-@media (max-width: 900px) {
-  .projects-hero { padding: 3rem 1.5rem 1.5rem; }
-  .filter-bar    { padding: 0 1.5rem 2rem; }
-  .featured-project-inner { padding: 0 1.5rem; }
-  .other-projects { padding: 3.5rem 1.5rem; }
-  .projects-grid  { grid-template-columns: 1fr; }
-}
-</style>
+</script>
 </head>
 <body>
+
 <nav id="navbar">
   <a href="index.html" class="nav-logo">Noor<span>.</span></a>
-  <ul class="nav-links">
+  <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">&#9776;</button>
+  <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="projects.html" class="active">Projects</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
 
 <div class="page">
 
+<!-- PROJECTS HERO -->
 <div class="projects-hero">
   <div class="section-label reveal">My Work</div>
-  <h1 class="reveal">Projects &amp; <em style="font-style:italic;color:var(--accent)">Case Studies</em></h1>
+  <h1 class="reveal">Projects &amp; <em style="font-style:italic;color:var(--blush)">Case Studies</em></h1>
   <p class="reveal">A collection of data analytics, machine learning, and dashboard projects — each solving a real-world problem.</p>
 </div>
 
+<!-- FILTER BAR -->
 <div class="filter-bar reveal">
   <button class="filter-btn active" data-filter="all">All</button>
   <button class="filter-btn" data-filter="ml">Machine Learning</button>
   <button class="filter-btn" data-filter="nlp">NLP / Deep Learning</button>
-  <button class="filter-btn" data-filter="dashboard">Dashboards</button>
+  <button class="filter-btn" data-filter="dashboards">Dashboards</button>
   <button class="filter-btn" data-filter="analytics">Analytics</button>
 </div>
 
 <div class="divider"></div>
 
 <!-- FEATURED: SSGC -->
-<div class="featured-project" id="ssgc">
+<div class="featured-project" id="ssgc" data-category="dashboards">
   <div class="featured-project-inner">
     <div class="featured-badge reveal">
-      <svg width="12" height="12" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       Featured Project
     </div>
     <h2 class="reveal">SSGC Learning Management System</h2>
@@ -137,46 +80,52 @@
     </div>
     <p class="featured-project-desc reveal">Designed and developed a full Learning Management System for SSGC's workforce digital training delivery. The platform enables employees to access training materials, enroll in courses, track their learning progress, and complete assessments. Administrators get a comprehensive analytics dashboard with department-level training completion, skills heatmaps, and automated certification management.</p>
     <div class="featured-tags reveal">
-      <span class="tag">Dashboard Development</span><span class="tag">Analytics</span>
-      <span class="tag">LMS Design</span><span class="tag">Skills Heatmap</span>
-      <span class="tag">Certification Tracking</span><span class="tag">Role-Based Access</span>
+      <span class="tag blush">Dashboard Development</span><span class="tag sage">Analytics</span>
+      <span class="tag">LMS Design</span><span class="tag blush">Skills Heatmap</span>
+      <span class="tag sage">Certification Tracking</span><span class="tag">Role-Based Access</span>
+    </div>
+    <div style="margin-bottom:2.5rem;" class="reveal">
+      <a href="https://github.com/noorulainsaqib/Data-Analyst-Portfolio" target="_blank" class="proj-github">
+        <svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        View on GitHub
+      </a>
     </div>
 
     <div class="showcase-label reveal">Project Screenshots — 5 Views</div>
     <div class="showcase-scroll">
       <div class="showcase-item reveal">
-        <img src="images/ssgc-1.jpeg" alt="Employee Dashboard" class="showcase-img">
+        <img src="images/ssgc-1.jpeg" alt="SSGC LMS — Employee dashboard showing training overview and progress tracking" class="showcase-img" loading="lazy">
         <div class="showcase-caption">
           <div><div class="showcase-caption-num">01 / 05</div><div class="showcase-caption-title">Employee Dashboard — Training Overview</div></div>
-          <span class="tag">Employee View</span>
+          <span class="tag sage">Employee View</span>
         </div>
       </div>
       <div class="showcase-item reveal">
-        <img src="images/ssgc-2.jpeg" alt="Admin Analytics Dashboard" class="showcase-img">
+        <img src="images/ssgc-2.jpeg" alt="SSGC LMS — Admin dashboard displaying skills heatmap and training completion rates" class="showcase-img" loading="lazy">
         <div class="showcase-caption">
           <div><div class="showcase-caption-num">02 / 05</div><div class="showcase-caption-title">Admin Dashboard — Skills Heatmap &amp; Completion</div></div>
-          <span class="tag">Admin View</span>
+          <span class="tag blush">Admin View</span>
         </div>
       </div>
       <div class="showcase-item reveal">
-        <img src="images/ssgc-3.jpeg" alt="Analytics Page" class="showcase-img">
+        <img src="images/ssgc-3.jpeg" alt="SSGC LMS — Analytics page with training results and skill gap report visualizations" class="showcase-img" loading="lazy">
         <div class="showcase-caption">
           <div><div class="showcase-caption-num">03 / 05</div><div class="showcase-caption-title">Analytics — Training Results &amp; Skill Gap Report</div></div>
           <span class="tag">Analytics</span>
         </div>
       </div>
       <div class="showcase-item reveal">
-        <img src="images/ssgc-4.jpeg" alt="Course Catalog" class="showcase-img">
+        <img src="images/ssgc-4.jpeg" alt="SSGC LMS — Course catalog page with browse and filter functionality" class="showcase-img" loading="lazy">
         <div class="showcase-caption">
           <div><div class="showcase-caption-num">04 / 05</div><div class="showcase-caption-title">Course Catalog — Browse &amp; Filter Courses</div></div>
-          <span class="tag">Course Management</span>
+          <span class="tag sage">Course Management</span>
         </div>
       </div>
       <div class="showcase-item reveal">
-        <img src="images/ssgc-5.jpeg" alt="Course Catalog Extended" class="showcase-img">
+        <img src="images/ssgc-5.jpeg" alt="SSGC LMS — Extended course catalog listing with detailed course information" class="showcase-img" loading="lazy">
         <div class="showcase-caption">
           <div><div class="showcase-caption-num">05 / 05</div><div class="showcase-caption-title">Course Catalog — Extended Listing View</div></div>
-          <span class="tag">Course Management</span>
+          <span class="tag sage">Course Management</span>
         </div>
       </div>
     </div>
@@ -186,12 +135,12 @@
 <!-- OTHER PROJECTS -->
 <div class="other-projects">
   <div class="section-label reveal">More Projects</div>
-  <h2 class="reveal">Other <em style="font-style:italic;color:var(--accent)">Work</em></h2>
-  <p class="reveal">Data wrangling, regression models, NLP pipelines and more.</p>
+  <h2 class="reveal">Other <em style="font-style:italic;color:var(--blush)">Work</em></h2>
+  <p class="reveal" style="margin-bottom:3rem">Data wrangling, regression models, NLP pipelines and more.</p>
 
   <div class="projects-grid">
 
-    <div class="proj-card reveal" id="hr">
+    <div class="proj-card reveal" id="hr" data-category="ml">
       <div class="proj-placeholder ph-a">
         <svg width="38" height="38" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         <div class="proj-placeholder-label">HR Analytics</div>
@@ -200,12 +149,19 @@
         <div class="proj-category">Machine Learning · HR</div>
         <div class="proj-title">HR Analytics — Performance &amp; Career Management</div>
         <div class="proj-desc">Built ML models using Random Forest, Logistic Regression, and XGBoost for promotion and performance prediction. Applied K-Means clustering for employee segmentation. Developed an interactive Streamlit app for HR decision support.</div>
-        <div class="proj-tags"><span class="tag">Random Forest</span><span class="tag">XGBoost</span><span class="tag">K-Means</span><span class="tag">Streamlit</span></div>
+        <div class="proj-tags">
+          <span class="tag blush">Random Forest</span><span class="tag sage">XGBoost</span>
+          <span class="tag">K-Means</span><span class="tag blush">Streamlit</span>
+        </div>
+        <a href="https://github.com/noorulainsaqib/Data-Analyst-Portfolio/blob/main/mlproject.ipynb" target="_blank" class="proj-github">
+          <svg width="13" height="13" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View on GitHub
+        </a>
       </div>
     </div>
 
-    <div class="proj-card reveal" id="skills">
-      <div class="proj-placeholder ph-b">
+    <div class="proj-card reveal" id="skills" data-category="nlp">
+      <div class="proj-placeholder ph-c">
         <svg width="38" height="38" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
         <div class="proj-placeholder-label">NLP · Deep Learning</div>
       </div>
@@ -213,12 +169,19 @@
         <div class="proj-category">Deep Learning · NLP</div>
         <div class="proj-title">Skills Ontology &amp; Gap Analysis</div>
         <div class="proj-desc">Applied LSTM and Word2Vec models to extract and classify skills from job descriptions and resumes. Built a skills ontology to visualize role-based requirements and identify competency gaps using KMeans clustering.</div>
-        <div class="proj-tags"><span class="tag">LSTM</span><span class="tag">Word2Vec</span><span class="tag">KMeans</span><span class="tag">NLP</span></div>
+        <div class="proj-tags">
+          <span class="tag blush">LSTM</span><span class="tag sage">Word2Vec</span>
+          <span class="tag">KMeans</span><span class="tag blush">NLP</span>
+        </div>
+        <a href="https://github.com/noorulainsaqib/Data-Analyst-Portfolio/blob/main/mlproject.ipynb" target="_blank" class="proj-github">
+          <svg width="13" height="13" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View on GitHub
+        </a>
       </div>
     </div>
 
-    <div class="proj-card reveal" id="house">
-      <div class="proj-placeholder ph-c">
+    <div class="proj-card reveal" id="house" data-category="ml">
+      <div class="proj-placeholder ph-b">
         <svg width="38" height="38" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         <div class="proj-placeholder-label">Regression · ML</div>
       </div>
@@ -226,11 +189,18 @@
         <div class="proj-category">Machine Learning</div>
         <div class="proj-title">House Price Prediction</div>
         <div class="proj-desc">Developed a predictive model using regression algorithms in Python to estimate house prices based on key features. Utilized a Kaggle dataset with feature engineering to analyze trends and improve prediction accuracy.</div>
-        <div class="proj-tags"><span class="tag">Regression</span><span class="tag">Python</span><span class="tag">Feature Eng.</span><span class="tag">Kaggle</span></div>
+        <div class="proj-tags">
+          <span class="tag blush">Regression</span><span class="tag sage">Python</span>
+          <span class="tag">Feature Eng.</span><span class="tag blush">Kaggle</span>
+        </div>
+        <a href="https://github.com/noorulainsaqib/Data-Analyst-Portfolio/blob/main/Regression%20analysis%20.ipynb" target="_blank" class="proj-github">
+          <svg width="13" height="13" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View on GitHub
+        </a>
       </div>
     </div>
 
-    <div class="proj-card reveal" id="food">
+    <div class="proj-card reveal" id="food" data-category="analytics">
       <div class="proj-placeholder ph-d">
         <svg width="38" height="38" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         <div class="proj-placeholder-label">EDA · Analytics</div>
@@ -239,11 +209,18 @@
         <div class="proj-category">Analytics · EDA</div>
         <div class="proj-title">Customer Behavior Analysis — iFood</div>
         <div class="proj-desc">Comprehensive analysis and preprocessing of the iFood dataset to understand customer purchasing behavior. Cleaned, visualized, and transformed data for machine learning applications including segmentation.</div>
-        <div class="proj-tags"><span class="tag">Python</span><span class="tag">Pandas</span><span class="tag">EDA</span><span class="tag">Visualization</span></div>
+        <div class="proj-tags">
+          <span class="tag blush">Python</span><span class="tag sage">Pandas</span>
+          <span class="tag">EDA</span><span class="tag blush">Visualization</span>
+        </div>
+        <a href="https://github.com/noorulainsaqib/Data-Analyst-Portfolio/blob/main/ifood_data_analysis1.ipynb" target="_blank" class="proj-github">
+          <svg width="13" height="13" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View on GitHub
+        </a>
       </div>
     </div>
 
-    <div class="proj-card reveal" id="web">
+    <div class="proj-card reveal" id="web" data-category="analytics">
       <div class="proj-placeholder ph-e">
         <svg width="38" height="38" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
         <div class="proj-placeholder-label">Web Scraping</div>
@@ -252,11 +229,17 @@
         <div class="proj-category">Data Engineering</div>
         <div class="proj-title">Web Scraping — "The News" Website</div>
         <div class="proj-desc">Collaborated with a team to build a tool automating the extraction of news reports from the web. Gathered report links and retrieved detailed reports, demonstrating skills in scraping pipelines and data processing.</div>
-        <div class="proj-tags"><span class="tag">Python</span><span class="tag">BeautifulSoup</span><span class="tag">Pandas</span></div>
+        <div class="proj-tags">
+          <span class="tag blush">Python</span><span class="tag sage">BeautifulSoup</span><span class="tag">Pandas</span>
+        </div>
+        <a href="https://github.com/noorulainsaqib/Data-Analyst-Portfolio/blob/main/Web%20Scraping%20project.ipynb" target="_blank" class="proj-github">
+          <svg width="13" height="13" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View on GitHub
+        </a>
       </div>
     </div>
 
-    <div class="proj-card reveal" id="banks">
+    <div class="proj-card reveal" id="banks" data-category="analytics">
       <div class="proj-placeholder ph-a">
         <svg width="38" height="38" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         <div class="proj-placeholder-label">Data Wrangling</div>
@@ -265,7 +248,13 @@
         <div class="proj-category">Data Wrangling</div>
         <div class="proj-title">Data Wrangling — Banks Dataset</div>
         <div class="proj-desc">Cleaned and transformed financial data from an Excel file using pandas. Used melt for reshaping, extracted financial ratios from text, and prepared the dataset for downstream statistical analysis.</div>
-        <div class="proj-tags"><span class="tag">Pandas</span><span class="tag">Excel</span><span class="tag">Data Cleaning</span></div>
+        <div class="proj-tags">
+          <span class="tag blush">Pandas</span><span class="tag sage">Excel</span><span class="tag">Data Cleaning</span>
+        </div>
+        <a href="https://github.com/noorulainsaqib/Data-Analyst-Portfolio/blob/main/data_wrangling_project.ipynb" target="_blank" class="proj-github">
+          <svg width="13" height="13" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          View on GitHub
+        </a>
       </div>
     </div>
 
@@ -275,33 +264,64 @@
 </div><!-- /page -->
 
 <footer>
-  <p>© 2025 Noor-ul-Ain Saqib · Islamabad, Pakistan</p>
+  <p class="footer-tagline">"Turning data into decisions."</p>
   <div class="footer-links">
-    <a href="mailto:nurulaix4040@gmail.com">Email</a>
-    <a href="https://www.linkedin.com/in/noor-ul-ain-saqib-922a96284/" target="_blank">LinkedIn</a>
-    <a href="https://www.datascienceportfol.io/nurulaix4040" target="_blank">DS Portfolio</a>
+    <a href="https://mail.google.com/mail/?view=cm&to=nurulaix4040@gmail.com&su=Portfolio%20Inquiry" target="_blank" rel="noopener noreferrer" class="footer-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Email
+    </a>
+    <a href="https://www.linkedin.com/in/noor-ul-ain-saqib-922a96284/" target="_blank" class="footer-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://www.datascienceportfol.io/nurulaix4040" target="_blank" class="footer-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+      DS Portfolio
+    </a>
   </div>
+  <p>© 2025 Noor-ul-Ain Saqib · Islamabad, Pakistan</p>
 </footer>
 
 <script>
   const navbar = document.getElementById('navbar');
   window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 20));
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks  = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  document.addEventListener('click', (e) => {
+    if (!navbar.contains(e.target)) navLinks.classList.remove('open');
+  });
+
+  // Working project filters
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
+      const cat = btn.dataset.filter;
+
+      // Filter project cards in the grid
+      document.querySelectorAll('[data-category]').forEach(card => {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Update active button
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
     });
   });
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach((e) => {
-      if (e.isIntersecting) {
-        const siblings = [...e.target.parentElement.children].filter(c => c.classList.contains('reveal'));
-        setTimeout(() => e.target.classList.add('visible'), siblings.indexOf(e.target) * 90);
-        io.unobserve(e.target);
+
+  // Staggered reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
       }
     });
   }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>

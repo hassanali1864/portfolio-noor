@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp \"c:/Users/hp/Desktop/portfolio-noor-/images/profile.jpeg\" \"c:/Users/hp/Desktop/portfolio-noor-/images/profile-new.jpeg\")",
+      "Bash(rm \"c:/Users/hp/Desktop/portfolio-noor-/profile.jpeg\" \"c:/Users/hp/Desktop/portfolio-noor-/ssgc-1.jpeg\" \"c:/Users/hp/Desktop/portfolio-noor-/ssgc-2.jpeg\" \"c:/Users/hp/Desktop/portfolio-noor-/ssgc-3.jpeg\" \"c:/Users/hp/Desktop/portfolio-noor-/ssgc-4.jpeg\" \"c:/Users/hp/Desktop/portfolio-noor-/ssgc-5.jpeg\")",
+      "Bash(ls *.html *.css)",
+      "Bash(grep -l \"profile-new\" *.html)",
+      "Bash(grep -l \"cdn.tailwindcss\" *.html)",
+      "Bash(grep -l \"Playfair+Display\" *.html)",
+      "Bash(grep -l \"og:title\" *.html)",
+      "Bash(grep -l \"nav-toggle\" *.html)"
+    ]
+  }
+}
