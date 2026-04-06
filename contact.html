@@ -8,7 +8,7 @@
 <meta property="og:title" content="Noor ul Ain Saqib | Data Analytics Professional">
 <meta property="og:description" content="Portfolio of data analytics projects including ML models, dashboards, and data analysis.">
 <meta property="og:image" content="images/profile-new.jpeg">
-<meta name="theme-color" content="#E8B4C8">
+<meta name="theme-color" content="#346739">
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
@@ -17,11 +17,11 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        cream: '#FDFAF6',
-        blush: '#E8B4C8',
-        sage: '#B5C9B7',
-        lavender: '#F2E6FF',
-        card: '#FFF5F7',
+        cream: '#F2EDC2',
+        primary: '#346739',
+        secondary: '#408A71',
+        accent: '#A0D585',
+        card: '#EEFABD',
       },
       fontFamily: {
         display: ['Playfair Display', 'serif'],
@@ -33,9 +33,10 @@ tailwind.config = {
 </script>
 </head>
 <body>
+<canvas id="particles-canvas"></canvas>
 
 <nav id="navbar">
-  <a href="index.html" class="nav-logo">Noor<span>.</span></a>
+  <a href="index.html" class="nav-logo"><span class="logo-type"></span></a>
   <button class="nav-toggle" aria-label="Toggle navigation" id="navToggle">&#9776;</button>
   <ul class="nav-links" id="navLinks">
     <li><a href="index.html">Home</a></li>
@@ -67,7 +68,7 @@ tailwind.config = {
   <!-- LEFT: Info -->
   <div class="contact-info">
     <div class="section-label reveal">Contact</div>
-    <h1 class="reveal">Let's work<br><em style="font-style:italic;color:var(--blush)">together</em></h1>
+    <h1 class="reveal" style="font-size: clamp(2.8rem, 5vw, 4.5rem);">Let's work<br><em style="font-style:italic;color:var(--secondary)">together</em></h1>
     <p class="reveal">I'm actively looking for entry-level data analyst or business analyst roles. Whether you have an opportunity, a project idea, or just want to connect — I'd love to hear from you.</p>
 
     <div class="contact-ways reveal">
@@ -184,6 +185,129 @@ tailwind.config = {
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<script>
+const logoEl = document.querySelector('.logo-type');
+const word = 'Noor.';
+let i = 0;
+const colors = ['#346739','#408A71','#285A48','#346739'];
+let colorIndex = 0;
+
+function typeLogo() {
+  if (!logoEl) return;
+  logoEl.textContent = word.slice(0, i);
+  i++;
+  if (i <= word.length) {
+    setTimeout(typeLogo, 150);
+  } else {
+    setTimeout(startShimmer, 400);
+  }
+}
+
+function startShimmer() {
+  logoEl.style.transition = 'color 0.8s ease';
+  function cycleColor() {
+    colorIndex = (colorIndex + 1) % colors.length;
+    logoEl.style.color = colors[colorIndex];
+    setTimeout(cycleColor, 900);
+  }
+  cycleColor();
+}
+typeLogo();
+</script>
+
+<script>
+const canvas = document.getElementById('particles-canvas');
+if (canvas) {
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+
+  const COLORS = ['#346739','#408A71','#A0D585','#9FCB98','#285A48','#79AE6F'];
+  const SHAPES = ['circle','diamond','cross','circle','circle'];
+  const particles = [];
+  const COUNT = 65;
+
+  for (let i = 0; i < COUNT; i++) {
+    particles.push({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight,
+      vx: (Math.random() - 0.5) * 0.55,
+      vy: (Math.random() - 0.5) * 0.55,
+      r: Math.random() * 3.5 + 1.5,
+      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      shape: SHAPES[Math.floor(Math.random() * SHAPES.length)],
+      opacity: Math.random() * 0.5 + 0.3
+    });
+  }
+
+  function drawShape(p) {
+    ctx.save();
+    ctx.globalAlpha = p.opacity;
+    ctx.fillStyle = p.color;
+    ctx.strokeStyle = p.color;
+    ctx.translate(p.x, p.y);
+    if (p.shape === 'circle') {
+      ctx.beginPath();
+      ctx.arc(0, 0, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    } else if (p.shape === 'diamond') {
+      ctx.beginPath();
+      ctx.moveTo(0, -p.r * 1.5);
+      ctx.lineTo(p.r, 0);
+      ctx.lineTo(0, p.r * 1.5);
+      ctx.lineTo(-p.r, 0);
+      ctx.closePath();
+      ctx.fill();
+    } else if (p.shape === 'cross') {
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.moveTo(-p.r * 1.2, 0);
+      ctx.lineTo(p.r * 1.2, 0);
+      ctx.moveTo(0, -p.r * 1.2);
+      ctx.lineTo(0, p.r * 1.2);
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 120) {
+          ctx.save();
+          ctx.globalAlpha = 0.15 * (1 - dist / 120);
+          ctx.strokeStyle = '#346739';
+          ctx.lineWidth = 0.7;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+          ctx.restore();
+        }
+      }
+    }
+    particles.forEach(p => {
+      drawShape(p);
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
 </script>
 </body>
 </html>
