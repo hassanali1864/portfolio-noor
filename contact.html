@@ -113,10 +113,9 @@ tailwind.config = {
     <div class="form-title">Send a Message</div>
     <p class="form-sub">Fill out the form and I'll get back to you as soon as possible.</p>
 
-    <form action="https://formspree.io/f/xlgoznkr" method="POST">
+    <form id="contact-form" action="https://formspree.io/f/xlgoznkr" method="POST">
       <input type="hidden" name="_subject" value="New Portfolio Inquiry">
       <input type="hidden" name="_replyto" value="nurulaix4040@gmail.com">
-      <input type="hidden" name="_next" value="https://noor-portfolio-live.vercel.app/thanks.html">
       <div class="form-row">
         <div class="form-group">
           <label class="form-label" for="fname">First Name</label>
@@ -308,6 +307,27 @@ if (canvas) {
   }
   draw();
 }
+</script>
+<script>
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const data = new FormData(form);
+  try {
+    const res = await fetch('https://formspree.io/f/xlgoznkr', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      window.location.href = 'thanks.html';
+    } else {
+      alert('Something went wrong. Please try again.');
+    }
+  } catch(err) {
+    alert('Something went wrong. Please try again.');
+  }
+});
 </script>
 </body>
 </html>
